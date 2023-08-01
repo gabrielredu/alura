@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     background: radial-gradient(farthest-corner at right top,#21A09D, #06182D);
     height: 100%;
@@ -103,6 +107,7 @@ html {
 .lista {
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 .item {
@@ -130,3 +135,12 @@ html {
     font-weight: 400;
 }
 
+.alerta {
+    padding: 0.6em 2em;
+    background: #FFFFFF;
+    border-radius: 10px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    height: 100%;
+}
