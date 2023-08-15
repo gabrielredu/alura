@@ -41,3 +41,14 @@ h3 {
     margin: 20px;
 }
 
+[data-btn] {
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px 16px;
+    margin-top: 24px;
+}
+
+[data-btn]:hover {
+    background-color: rgb(200, 200, 200);
+}
