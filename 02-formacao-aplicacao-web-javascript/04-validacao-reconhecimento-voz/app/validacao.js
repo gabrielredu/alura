@@ -3,10 +3,22 @@ function validacao(chute) {
 
     if (isNotANumber(numero)) {
         chuteElements.innerHTML += `<div class="erro">Você precisa falar somente números!</div>`;
+        return
     }
 
     if (numberInsideRange(numero)) {
         chuteElements.innerHTML += `<div class="alerta">Você precisa falar números entre ${menorValor} e ${maiorValor}</div>`;
+        return
+    }
+
+    if (numero < numeroGerado) {
+        chuteElements.innerHTML += `
+        <div>O número secreto é maior <i class="fa-solid fa-up-long"></i></div>
+        `
+    } else {
+        chuteElements.innerHTML += `
+        <div>O número secreto é menor <i class="fa-solid fa-down-long"></i></div>
+        `
     }
 
     if (numero === numeroGerado) {
