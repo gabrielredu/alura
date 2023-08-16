@@ -12,5 +12,3 @@ const numeroGerado = geradorNumero();
 function geradorNumero() {
     return parseInt(Math.random() * maiorValor + 1);
 }
-
-console.log(`O número gerado é: ${numeroGerado}`);
