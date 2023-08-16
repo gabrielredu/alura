@@ -41,7 +41,7 @@ h3 {
     margin: 20px;
 }
 
-[data-btn] {
+[data-btn], .start-game {
     background-color: #00668f;
     color: white;
     border: none;
@@ -52,6 +52,17 @@ h3 {
     margin-top: 24px;
 }
 
-[data-btn]:hover {
+[data-btn]:hover, .start-game:hover {
     background-color: #024c69;
+}
+
+.erro {
+    background-color: red;
+    padding: 4px;
+}
+
+.alerta {
+    background-color: sandybrown;
+    color: #024c69;
+    padding: 4px;
 }
