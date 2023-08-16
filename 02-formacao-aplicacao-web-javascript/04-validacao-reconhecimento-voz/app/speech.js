@@ -1,7 +1,7 @@
 window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 const buttonStart = document.querySelector('[data-btn]');
-const speechText = document.querySelector('.box');
+const chuteElements = document.querySelector('#chute');
 
 recognition.lang = 'pt-Br';
 
@@ -9,12 +9,24 @@ recognition.lang = 'pt-Br';
 
 buttonStart.addEventListener('click', () => {
     recognition.start();
-    console.log('Iniciou');
-    buttonStart.innerHTML = 'Ouvindo...';
+    buttonStart.innerHTML = 'Ouvindo...'
 })
 
 recognition.addEventListener('result', speechResult)
 
+recognition.addEventListener('audioend', () => {
+    buttonStart.innerHTML = 'Tentar de novo';
+})
+
 function speechResult(e) {
-    speechText.innerHTML = e.results[0][0].transcript;
+    const speech = e.results[0][0].transcript;
+    exibirChute(speech);
+    validacao(speech);
+}
+
+function exibirChute(speech) {
+    chuteElements.innerHTML = `
+        <div>Você disse:</div>
+        <span class="box">${speech}</span>
+    `
 }

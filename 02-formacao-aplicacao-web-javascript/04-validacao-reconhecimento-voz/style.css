@@ -42,13 +42,16 @@ h3 {
 }
 
 [data-btn] {
+    background-color: #00668f;
+    color: white;
     border: none;
     cursor: pointer;
     font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
     padding: 8px 16px;
     margin-top: 24px;
 }
 
 [data-btn]:hover {
-    background-color: rgb(200, 200, 200);
+    background-color: #024c69;
 }
