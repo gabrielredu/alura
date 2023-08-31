@@ -6,6 +6,7 @@
     --azul-claro: #E5F1FF;
     --cinza-texto: #444444;
     --cinza-claro: #ECECEC;
+    --vermelho: #cc2d2d;
     box-sizing: border-box;
 }
 
@@ -69,6 +70,12 @@ body {
 
 .mensagem__titulo {
     color: var(--azul-medio);
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.mensagem__titulo__erro {
+    color: var(--vermelho);
     font-weight: bold;
     font-size: 21px;
 }
