@@ -1,6 +1,40 @@
 import ehUmCpf from "./valida-cpf.js";
 import validarIdade from "./valida-idade.js";
 
+const camposFormulario = document.querySelectorAll('[required]');
+const formulario = document.querySelector('[data-formulario]');
+
+camposFormulario.forEach((campo) => {
+    campo.addEventListener('blur', () => {
+        validarCampo(campo);
+    })
+    campo.addEventListener('invalid', (evento) => {
+        evento.preventDefault();
+    })
+})
+
+formulario.addEventListener("submit", (e) => {
+
+    const listaRespostas = {
+        "nome": e.target.elements["nome"].value,
+        "email": e.target.elements["email"].value,
+        "rg": e.target.elements["rg"].value,
+        "cpf": e.target.elements["cpf"].value,
+        "aniversario": e.target.elements["aniversario"].value,
+    }
+    localStorage.setItem("cadastro", JSON.stringify(listaRespostas));
+
+    window.location.href = './pages/abrir-conta-form-2.html'
+})
+
+const tiposDeErro = [
+    'valueMissing',
+    'typeMismatch',
+    'patternMismatch',
+    'tooShort',
+    'customError'
+]
+
 const mensagens = {
     nome: {
         valueMissing: "O campo de nome não pode estar vazio.",
@@ -9,8 +43,8 @@ const mensagens = {
     },
     email: {
         valueMissing: "O campo de e-mail não pode estar vazio.",
-        typeMismatch: "Por favor, preencha um email válido.",
-        tooShort: "Por favor, preencha um e-mail válido."
+        typeMismatch: "Por favor, preencha um e-mail válido.",
+        tooShort: "E-mail é muito curto."
     },
     rg: {
         valueMissing: "O campo de RG não pode estar vazio.",
@@ -32,14 +66,16 @@ const mensagens = {
     }
 }
 
-const camposFormulario = document.querySelectorAll('[required]');
-camposFormulario.forEach((campo) => {
-    campo.addEventListener('blur', () => {
-        validarCampo(campo);
-    })
-})
-
 function validarCampo(campo) {
+    let mensagem = '';
+    campo.setCustomValidity('');
+
+    tiposDeErro.forEach(erro => {
+        if (campo.validity[erro]) {
+            mensagem = mensagens[campo.name][erro];
+        }
+    })
+
     if (campo.name == "cpf" && campo.value.length >= 11) {
         ehUmCpf(campo);
     }
@@ -47,4 +83,14 @@ function validarCampo(campo) {
     if (campo.name == "aniversario" && campo.value != "") {
         validarIdade(campo);
     }
+
+    const mensagemErro = campo.parentNode.querySelector('.mensagem-erro');
+    const validadorInput = campo.checkValidity();
+
+    if (!validadorInput) {
+        mensagemErro.textContent = mensagem;
+    } else {
+        mensagemErro.textContent = '';
+    }
 }
+
