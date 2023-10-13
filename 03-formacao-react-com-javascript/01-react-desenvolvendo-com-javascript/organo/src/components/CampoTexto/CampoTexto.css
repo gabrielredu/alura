@@ -9,7 +9,7 @@
     margin-bottom: 8px;
 }
 
-.campo-texto input {
+.campo-texto input, select {
     background-color: #FFF;
     border-radius: 4px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
