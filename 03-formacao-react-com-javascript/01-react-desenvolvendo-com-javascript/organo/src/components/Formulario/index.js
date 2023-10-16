@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Botao from '../Botao';
 import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
@@ -5,9 +6,14 @@ import './Formulario.css';
 
 const Formulario = () => {
 
+    const [nome, setNome] = useState('')
+    const [cargo, setCargo] = useState('')
+    const [img, setImg] = useState('')
+    const [time, setTime] = useState('')
+
     function onSubmit (e) {
-        console.log('tá funcionando?')
         e.preventDefault();
+        console.log('tá funcionando?', nome, cargo, img, time);
     }
 
     const times = [
@@ -18,10 +24,10 @@ const Formulario = () => {
         <section className='formulario'>
             <form onSubmit={onSubmit}>
                 <h2>Preencha os campos para criar o card do colaborador</h2>
-                <CampoTexto required={true} label='Nome' placeholder='Digite seu nome' />
-                <CampoTexto required={true} label='Cargo' placeholder='Digite seu cargo' />
-                <CampoTexto label='Imagem' placeholder='Informe o endereço da imagem' />
-                <ListaSuspensa required={true} label='Time' itens={times} />
+                <CampoTexto aoAlterado={valor => setNome(valor)} valor={nome} required={true} label='Nome' placeholder='Digite seu nome' />
+                <CampoTexto aoAlterado={valor => setCargo(valor)} valor={cargo} required={true} label='Cargo' placeholder='Digite seu cargo' />
+                <CampoTexto aoAlterado={valor => setImg(valor)} valor={img} label='Imagem' placeholder='Informe o endereço da imagem' />
+                <ListaSuspensa aoAlterado={valor => setTime(valor)} valor={time} required={true} label='Time' itens={times} />
                 <Botao>Criar Card</Botao>
             </form>
         </section>
