@@ -13,7 +13,7 @@ const Formulario = () => {
 
     function onSubmit (e) {
         e.preventDefault();
-        console.log('tá funcionando?', nome, cargo, img, time);
+        console.log(`Os dados do formulário são: Nome: ${nome}, Cargo: ${cargo}, URL da imagem: ${img} e o Time: ${time}`);
     }
 
     const times = [
