@@ -4,16 +4,22 @@ import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
 import './Formulario.css';
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [img, setImg] = useState('')
-    const [time, setTime] = useState('')
+    const [time, setTime] = useState('Selecione uma opção')
 
     function onSubmit (e) {
         e.preventDefault();
         console.log(`Os dados do formulário são: Nome: ${nome}, Cargo: ${cargo}, URL da imagem: ${img} e o Time: ${time}`);
+        props.novoColaborador({
+            nome,
+            cargo,
+            img,
+            time
+        })
     }
 
     const times = [
