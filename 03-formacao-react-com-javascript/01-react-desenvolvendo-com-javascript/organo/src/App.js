@@ -52,7 +52,14 @@ function App() {
         times={times.map(time => time.nome)}
       />
       {times.map((time, index) => {
-        return <Time key={time.nome} nomeTime={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} timePos={index + 1} />
+        return <Time
+        key={time.nome}
+        nomeTime={time.nome}
+        corPrimaria={time.corPrimaria}
+        corSecundaria={time.corSecundaria}
+        index={index} 
+        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        />
       })}
     </div>
   );

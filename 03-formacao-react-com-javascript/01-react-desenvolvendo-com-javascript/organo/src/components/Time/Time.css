@@ -3,7 +3,7 @@
     --bg-escuro: #57c278;
 
     background-color: var(--bg-claro);
-    padding: 32px;
+    padding: 44px 80px;
     text-align: center;
 }
 
@@ -11,6 +11,7 @@
     font-size: 32px;
     position: relative;
     margin-bottom: 44px;
+    margin-top: 0;
 }
 
 .time h3::after {
@@ -23,4 +24,10 @@
     height: 4px;
     bottom: -20px;
     left: calc((100% - var(--width)) / 2);
+}
+
+.time-list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
 }
