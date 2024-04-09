@@ -34,4 +34,18 @@
     line-height: 22px;
     color: #212121;
     padding: 0 16px;
+    margin-bottom: 24px;
+}
+
+.colaborador .rodape button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #212121;
+    padding: 12px;
+    transition: background-color 200ms ease;
+}
+
+.colaborador .rodape button:hover {
+    background-color: #d9d9d9;
 }
