@@ -1,7 +1,8 @@
 .time {
     text-align: center;
-    padding: 32px;
+    padding: 60px 10px;
     background-blend-mode: multiply;
+    position: relative;
 }
 
 .time h3 {
@@ -13,8 +14,29 @@
 }
 
 .time .colaboradores {
+    align-items: center;
+    justify-content: center;
     display: flex;
-    justify-content: space-around;
+    gap: 24px;
     margin-top: 32px;
     flex-wrap: wrap;
+}
+
+.input-color {
+    position: absolute;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    cursor: pointer;
+    top: 20px;
+    right: 50px;
+    border: none;
+    padding: 2px;
+    width: 70px;
+    height: 35px;
+    transition: all 150ms ease;
+}
+
+.input-color:hover {
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, .4);
+    top: 16px;
 }

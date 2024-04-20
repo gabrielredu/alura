@@ -49,3 +49,21 @@
 .colaborador .rodape button:hover {
     background-color: #d9d9d9;
 }
+
+.favoritar {
+    border: 1px solid #212121;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 10px;
+    margin: 0 auto;
+    margin-top: 24px;
+    padding: 8px;
+    width: fit-content;
+}
+
+.favoritado {
+    background-color: #d93636;
+    border-color: #d93636;
+    color: #fff;
+    text-transform: uppercase;
+}
