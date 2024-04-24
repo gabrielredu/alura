@@ -1,0 +1,27 @@
+.btn {
+    background: #6278F7;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 24px;
+    position: relative;
+}
+
+.btn:hover {
+    animation: sombra 200ms ease forwards;
+}
+
+@keyframes sombra {
+    from {
+        top: 0;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0);
+    }
+
+    to {
+        top: -4px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, .4);
+    }
+}
